@@ -36,10 +36,17 @@ file_menu.add_command(label='Save as', command=save_as)
 file_menu.add_separator()
 file_menu.add_command(label='Exit')
 
+edit_menu = Menu(tearoff=0)
+edit_menu.add_command(label='')
+
+format_menu = Menu(tearoff=0)
+format_menu.add_command(label='Wrap')
+format_menu.add_command(label='Font')
+
 main_menu = Menu()
 main_menu.add_cascade(label='File', menu=file_menu)
-main_menu.add_cascade(label='Edit')
-main_menu.add_cascade(label='Format')
+main_menu.add_cascade(label='Edit', menu=edit_menu)
+main_menu.add_cascade(label='Format', menu=format_menu)
 
 
 text_editor.config(menu=main_menu)
