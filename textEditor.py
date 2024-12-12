@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
+from tkinter import messagebox
 
 text_editor = Tk()
 text_editor.title('Text Editor')
@@ -26,22 +27,25 @@ def save_as():
         file1.write(t)
         file1.close()
 
+def default():
+    messagebox.showinfo('Text Editor', 'Will be realised soon')
+
 file_menu = Menu(tearoff=0)
-file_menu.add_command(label='Create')
-file_menu.add_command(label='New window')
+file_menu.add_command(label='Create', command=default)
+file_menu.add_command(label='New window', command=default)
 file_menu.add_command(label='Open', command=open_file)
 file_menu.add_separator()
-file_menu.add_command(label='Save')
+file_menu.add_command(label='Save', command=default)
 file_menu.add_command(label='Save as', command=save_as)
 file_menu.add_separator()
-file_menu.add_command(label='Exit')
+file_menu.add_command(label='Exit', command=default)
 
 edit_menu = Menu(tearoff=0)
-edit_menu.add_command(label='')
+edit_menu.add_command(label='', command=default)
 
 format_menu = Menu(tearoff=0)
-format_menu.add_command(label='Wrap')
-format_menu.add_command(label='Font')
+format_menu.add_command(label='Wrap', command=default)
+format_menu.add_command(label='Font', command=default)
 
 main_menu = Menu()
 main_menu.add_cascade(label='File', menu=file_menu)
